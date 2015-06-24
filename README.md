@@ -9,7 +9,7 @@ The tech stack behind Auction Room includes **Bootstrap** for a modern design, *
 
 Motivation for tech
 -------------------
-SignlaR was chosen for its ability to use Websocket transport, if availabe, and fallback to older transports if necessary. 
+SignlaR was chosen for its ability to use the Websocket transport, if availabe, and fallback to older transports if necessary. 
 The order in which the transport is chosen is the following:
 
 HTML 5 transports:
@@ -36,7 +36,7 @@ All bid transactions are logged to a database table.
 	
 Running
 -------
-After opening the solution you will need to install the required packages. 
+The first time you open the solution you will need to install the required packages. 
 Once done, you can open the application in your browser and sign-up for an account.
 
 
