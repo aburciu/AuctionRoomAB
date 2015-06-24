@@ -1,0 +1,101 @@
+﻿@using System.Web.Optimization
+@using AuctionRoomAB.Helpers
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Live Auctions &bull; @ViewBag.Title</title>
+
+    @Styles.Render("~/css")
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <!-- Fixed navbar -->
+
+    @{string navbarType = "fixed-top";}
+
+    @if (@ViewBag.Title == "Live Auction")
+    {
+        navbarType = "static-top";
+    }
+
+    <div class="navbar navbar-default navbar-@navbarType">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Live Auctions</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.MenuLink("Home", "Index", "Home")</li>
+                    <li>@Html.MenuLink("Auction Room", "AuctionRoom", "Home")</li>
+                    <li>@Html.MenuLink("About", "About", "Home")</li>
+                </ul>
+                <div id="login">
+                    @Html.Partial("_LoginPartial", new AuctionRoomAB.Models.LoginModel())
+                </div>
+
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    @RenderSection("Carousel", false)
+    <div class="container">
+        <noscript>
+            <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Warning!</strong> Please enable JavaScript in your browser!
+            </div>
+        </noscript>
+
+        <div class="row">
+            @if (IsSectionDefined("sidebar"))
+            {
+                <div class="span2">
+                    @RenderSection("sidebar", required: false)
+                </div>
+            }
+
+            <div id="content" @(IsSectionDefined("sidebar") ? Html.Raw("class=span10") : Html.Raw("class=span12"))>
+                @if (IsSectionDefined("featured"))
+                {
+                    <div>
+                        <div class="hero-unit">
+                            @RenderSection("featured", required: false)
+                        </div>
+                    </div>
+                }
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="span12">
+                <footer id="footer">
+                    <p>&copy; 2015 - Live Auctions</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/js")
+    @RenderSection("scripts", required: false)
+    <script>
+        $('#logout').click(function () {
+            $('#logoutForm').submit();
+        });
+
+        $('#signup, #signup-main').click(function () {
+            location.href = '/Account/Register';
+        });
+    </script>
+</body>
+</html>

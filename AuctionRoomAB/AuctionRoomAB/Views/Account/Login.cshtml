@@ -1,0 +1,44 @@
+﻿@model AuctionRoomAB.Models.LoginModel
+@using System.Web.Optimization
+
+@{
+    ViewBag.Title = "Log in";
+
+    if (Request.IsAuthenticated)
+    {
+        Response.Redirect("/Home/AuctionRoom/");
+    }
+}
+
+
+<h2>@ViewBag.Title</h2>
+<h4>You need to log in to access the Auction Room.</h4>
+<br />
+
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    
+    <div class="col-lg-4">
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <div class="checkbox">
+            @Html.CheckBoxFor(m => m.RememberMe)
+            @Html.LabelFor(m => m.RememberMe)
+        </div>
+
+        <input type="submit" value="Log in" class="btn btn-default" />
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

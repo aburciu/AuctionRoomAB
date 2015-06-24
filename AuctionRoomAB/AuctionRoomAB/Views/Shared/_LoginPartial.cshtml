@@ -1,0 +1,31 @@
+﻿@model AuctionRoomAB.Models.LoginModel
+@if (Request.IsAuthenticated)
+{
+    <div class="navbar-form navbar-right">
+    Hello, <strong>@User.Identity.Name</strong>
+
+    @using (Html.BeginForm("Logoff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <a href="#" id="logout">Logout</a>
+    }
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+    @Html.Hidden("returnUrl", "www");
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.UserName, new { @placeholder = "Username", @class = "form-control" })
+    </div>
+    
+    <div class="form-group">
+        @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control" })
+    </div>
+    
+    <button type="submit" class="btn btn-success">Sign in</button>
+        <span>&nbsp; <button type="button" id="signup" class="btn btn-info">Sign up</button></span>
+    }
+}

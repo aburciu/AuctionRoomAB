@@ -1,0 +1,63 @@
+@media (min-width: 980px) {
+    body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("/Content/images/glyphicons-halflings.png");
+}
+
+.bid-item {
+    width: 630px;
+    padding: 0px;
+}
+
+#bid-button {
+    height: 45px;
+}
+
+ul {
+    font-size: 13px;
+    padding-left: 15px;
+}
+
+.validation-summary-errors {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2dede;
+    width: 500px;
+    font-size: 14px;
+}
+
+/*.jumbotron {
+    padding: 10px !important;
+    margin-top: 55px;
+    padding-left: 19px;
+}*/
+
+.credit {
+    text-align: right;
+    font-size: 11px;
+}
+
+.btn-custom {
+    width: 470px;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-wd {
+    width: 300px;
+}
+
+.callnow {
+    display: inline-block;
+    background-color: #ededed;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    width: 150px;
+    float: right;
+}
