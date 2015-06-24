@@ -1,15 +1,15 @@
 Auction Room
 ============
 
-Auction Room is an online platform where you can bid **live** on items from a real-world Auction Room. 
+Auction Room is an online platform where you can bid **live** on items from a real-world auction room. 
 The updates are real-time and it supports user accounts and concurrent connections, which are mapped to each user account.
 
-The tech stack behind Auction Room includes **Bootstrap** for a modern design, **SignlaR** for real-time updates and **NHibernate** as an ORM.
+The tech stack behind Auction Room includes **Bootstrap** for a modern design, **SignalR** for real-time updates and **NHibernate** as an ORM.
 
 
 Motivation for tech
 -------------------
-SignlaR was chosen for its ability to use the Websocket transport, if availabe, and fallback to older transports if necessary. 
+SignalR was chosen for its ability to use the Websocket transport, if availabe, and fallback to older transports if necessary. 
 The order in which the transport is chosen is the following:
 
 HTML 5 transports:
